@@ -1,0 +1,160 @@
+swagger: '2.0'
+info:
+  description: The list of variety of platforms
+  version: 1.0.0
+  title: Various Platforms
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: localhost
+tags:
+  - name: platform
+    description: Everything about your Platform
+schemes:
+  - http
+paths:
+  '/platforms/{id}':
+    get:
+      tags:
+        - platform
+      summary: Find platform by ID
+      description: Returns a single Platform
+      operationId: getPlatformById
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of Platform to return
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Platform'
+        '400':
+          description: Invalid Platform ID supplied
+        '404':
+          description: Platform not found
+    delete:
+      tags:
+        - platform
+      summary: Deletes a platform
+      description: Details of platform to delete
+      operationId: deletePlatform
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Platform id to delete
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '404':
+          description: Platform not found
+  /platforms:
+    get:
+      tags:
+        - platform
+      summary: Find all platforms
+      description: Returns all available Platform
+      operationId: getAllPlatforms
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Platform'
+      
+    post:
+      tags:
+        - platform
+      summary: Add a new platform to the list
+      description: Add a new platform
+      operationId: addPlatform
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: platform
+          description: Platform object that needs to be added to the list
+          required: true
+          schema:
+            $ref: '#/definitions/Platform'
+      responses:
+        '405':
+          description: Invalid input
+    put:
+      tags:
+        - platform
+      summary: Update an existing platform
+      description: Details to be updated
+      operationId: updatePlatform
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: platform
+          description: Platform object that needs to be updated in the list
+          required: true
+          schema:
+            $ref: '#/definitions/Platform'
+      responses:
+        
+        '404':
+          description: Platform not found
+        '405':
+          description: Validation exception
+  '/platforms/platformDetails/{name}':
+    get:
+      tags:
+        - platform
+      summary: Find platform by Name
+      description: Returns a list of Platform
+      operationId: getPlatformByName
+      produces:
+        - application/json
+      parameters:
+        - name: name
+          in: path
+          description: Name of Platform to return
+          required: true
+          type: string
+          
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Platform'
+        '400':
+          description: Invalid Platform Name supplied
+        '404':
+          description: Platform not found
+definitions:
+  Platform:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Platform Id
+      name:
+        type: string
+        description: Platform Name
+      language:
+        type: string
+        description: Platform Language
+      framework:
+        type: string
+        description: Platform Framework
