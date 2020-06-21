@@ -22,7 +22,9 @@ The server code is generated using swagger.yaml file created through Swagger Cod
 
 * **Command Used for generating API code from swagger.yaml file :-**
 
- java -jar .\modules\swagger-codegen-cli\target\swagger-codegen-cli.jar generate -i 'C:\Users\bharat\Downloads\swagger.yaml'  -o C:\Users\bharat\Desktop\server-flair1 -l spring     
+ #cd swagger-codegen 
+
+ #java -jar .\modules\swagger-codegen-cli\target\swagger-codegen-cli.jar generate -i 'C:\Users\bharat\Downloads\swagger.yaml'  -o C:\Users\bharat\Desktop\server-flair1 -l spring     
 
 * **The Swagger Editor looks like following and generates the documentation parallely for the written YAML code.**
   
