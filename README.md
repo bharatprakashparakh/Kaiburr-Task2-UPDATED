@@ -44,10 +44,10 @@ The server code is generated using swagger.yaml file created through Swagger Cod
 
 ### Break down into end to end tests
 
-* Now Swagger is ready to generate documentation together with REST API.Verify that Swagger is running by creating a request to
-  http://localhost:8080 
+* **Now Swagger is ready to generate documentation together with REST API.Verify that Swagger is running by creating a request to
+  http://localhost:8080**
   
- The above request will be redirected automatically to http://localhost:8080/swagger-ui.html#/platform
+* **The above request will be redirected automatically to http://localhost:8080/swagger-ui.html#/platform**
   
   The following page will be displayed:-
   
